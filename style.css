@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.controls label {
+    margin-right: 5px;
+}
+
+.controls input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.controls button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Calendar Styles */
+.month-container {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    page-break-after: always; /* Ensure each month is on a new page when printing */
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 10px;
+    row-gap: 20px;
+}
+
+.day-cell {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.day-cell.empty {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.day-name {
+    font-size: 0.9em;
+}
+
+.day-number {
+    background-color: white;
+    border-radius: 8px;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 5px 10px; /* Give some horizontal margin */
+    padding: 10px 5px;
+    text-shadow: none; /* Remove shadow from the number itself */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.month-year {
+    font-size: 0.8em;
+}
+
+/* Day Number Colors (inside the white frame) */
+.day-work {
+    color: black;
+}
+
+.day-wednesday {
+    color: hotpink;
+}
+
+.day-weekend {
+    color: red;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    header {
+        display: none;
+    }
+
+    .month-container {
+        margin-bottom: 0;
+        padding: 10mm;
+        border-radius: 0;
+        /* Force printing of background colors */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .day-cell {
+        width: 27.7mm; /* New width to match frieze */
+        height: 38mm;
+        min-height: 0; /* Override previous min-height */
+        text-shadow: none; /* Shadows can look bad in print */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2px;
+    }
+
+    .days-grid {
+        row-gap: 5mm; /* Larger gap for easier cutting */
+        column-gap: 0; /* Remove column gap to maximize width */
+    }
+
+    .day-number {
+        border: 1px solid #eee;
+        /* Force printing of text colors */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+@page {
+    size: A4 landscape; /* Changed to landscape */
+    margin: 10mm;
+}

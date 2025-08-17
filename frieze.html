@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Frise Scolaire</title>
+    <link rel="stylesheet" href="style.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="frieze.css">
+</head>
+<body>
+    <header>
+        <h1>Générateur de Frise Scolaire</h1>
+        <div class="controls">
+            <label for="year-input">Année de démarrage :</label>
+            <input type="number" id="year-input">
+            <button id="generate-btn">Générer la frise</button>
+            <button onclick="window.print()">Imprimer</button>
+        </div>
+    </header>
+    <main id="frieze-container"></main>
+    <script src="frieze.js"></script>
+</body>
+</html>

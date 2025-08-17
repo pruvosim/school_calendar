@@ -1,0 +1,95 @@
+/* Frieze Styles */
+#frieze-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.frieze-strip {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    page-break-inside: avoid; /* Try to keep strips from breaking across pages */
+    position: relative;
+}
+
+.frieze-header {
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ccc;
+}
+
+.frieze-cells {
+    display: flex;
+    flex-direction: row;
+}
+
+.frieze-cell {
+    /* CRITICAL: Dimensions must match the calendar labels */
+    width: 37.4mm; 
+    height: 38mm;
+    box-sizing: border-box; /* Make sure border is included in width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frieze-cell:first-child {
+    border-left: none;
+}
+
+.frieze-workday {
+    background-color: white;
+}
+
+.frieze-offday {
+    background-color: #e0e0e0; /* Light grey */
+}
+
+.first-day-icon {
+    font-size: 2em;
+}
+
+/* Glue tab at the end of the strip */
+.frieze-strip::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 15px;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #ccc,
+        #ccc 5px,
+        white 5px,
+        white 10px
+    );
+    border-left: 1px solid #ccc;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+    #frieze-container {
+        gap: 15mm;
+    }
+    .frieze-strip, .frieze-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .frieze-strip::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+@page {
+    size: A4 landscape;
+    margin: 10mm;
+}
