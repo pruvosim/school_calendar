@@ -68,11 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
             let startDay = (firstDayOfMonth.getDay() + 6) % 7;
 
-            for (let j = 0; j < startDay; j++) {
-                const emptyCell = document.createElement('div');
-                emptyCell.className = 'day-cell empty';
-                daysContainer.appendChild(emptyCell);
-            }
+            
 
             for (let day = 1; day <= daysInMonth; day++) {
                 const currentDate = new Date(year, monthIndex, day);

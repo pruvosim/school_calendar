@@ -29,8 +29,8 @@
 
 .frieze-cell {
     /* CRITICAL: Dimensions must match the calendar labels */
-    width: 37.4mm; 
-    height: 38mm;
+    width: 25mm; 
+    height: 45mm;
     box-sizing: border-box; /* Make sure border is included in width */
     display: flex;
     align-items: center;
@@ -53,24 +53,6 @@
     font-size: 2em;
 }
 
-/* Glue tab at the end of the strip */
-.frieze-strip::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 15px;
-    background-image: repeating-linear-gradient(
-        -45deg,
-        #ccc,
-        #ccc 5px,
-        white 5px,
-        white 10px
-    );
-    border-left: 1px solid #ccc;
-}
-
 /* Print Styles */
 @media print {
     body {
@@ -83,13 +65,9 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
-    .frieze-strip::after {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
 }
 
 @page {
     size: A4 landscape;
-    margin: 10mm;
+    margin: 0 5mm; /* 0 top/bottom, 5mm left/right */
 }

@@ -3,20 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Générateur de Calendrier Scolaire</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Outils Scolaires</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Générateur de Calendrier Scolaire</h1>
-        <div class="controls">
-            <label for="year-input">Année de démarrage :</label>
-            <input type="number" id="year-input" value="2024">
-            <button id="generate-btn">Générer le calendrier</button>
-            <button onclick="window.print()">Imprimer</button>
+    <div class="container my-5">
+        <div class="p-5 text-center bg-light rounded-3">
+            <h1 class="display-4">Générateur d'Outils Scolaires</h1>
+            <p class="lead">Choisissez un outil à utiliser.</p>
         </div>
-    </header>
-    <main id="calendar-container"></main>
-    <script src="script.js"></script>
+
+        <div class="row mt-5">
+            <!-- Calendrier Tool -->
+            <div class="col-md-6">
+                <a href="./Calendrier/calendar.html" class="card-link">
+                    <div class="card text-center h-100">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="card-title">Calendrier Annuel</h5>
+                            <p class="card-text">Générez les étiquettes de calendrier pour l'année scolaire.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Frise Tool -->
+            <div class="col-md-6">
+                <a href="./Frise/frieze.html" class="card-link">
+                    <div class="card text-center h-100">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="card-title">Frise Mensuelle</h5>
+                            <p class="card-text">Générez les bandes de support pour créer une frise chronologique.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
